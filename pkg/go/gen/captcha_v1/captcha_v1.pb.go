@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        v3.21.12
-// source: api/captcha_v1.proto
+// source: captcha_v1.proto
 
 package captcha_v1
 
@@ -30,7 +30,7 @@ type Service struct {
 
 func (x *Service) Reset() {
 	*x = Service{}
-	mi := &file_api_captcha_v1_proto_msgTypes[0]
+	mi := &file_captcha_v1_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -42,7 +42,7 @@ func (x *Service) String() string {
 func (*Service) ProtoMessage() {}
 
 func (x *Service) ProtoReflect() protoreflect.Message {
-	mi := &file_api_captcha_v1_proto_msgTypes[0]
+	mi := &file_captcha_v1_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -55,7 +55,7 @@ func (x *Service) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Service.ProtoReflect.Descriptor instead.
 func (*Service) Descriptor() ([]byte, []int) {
-	return file_api_captcha_v1_proto_rawDescGZIP(), []int{0}
+	return file_captcha_v1_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Service) GetName() string {
@@ -75,7 +75,7 @@ type Details struct {
 
 func (x *Details) Reset() {
 	*x = Details{}
-	mi := &file_api_captcha_v1_proto_msgTypes[1]
+	mi := &file_captcha_v1_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -87,7 +87,7 @@ func (x *Details) String() string {
 func (*Details) ProtoMessage() {}
 
 func (x *Details) ProtoReflect() protoreflect.Message {
-	mi := &file_api_captcha_v1_proto_msgTypes[1]
+	mi := &file_captcha_v1_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -100,7 +100,7 @@ func (x *Details) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Details.ProtoReflect.Descriptor instead.
 func (*Details) Descriptor() ([]byte, []int) {
-	return file_api_captcha_v1_proto_rawDescGZIP(), []int{1}
+	return file_captcha_v1_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Details) GetId() string {
@@ -117,11 +117,11 @@ func (x *Details) GetResult() string {
 	return ""
 }
 
-var File_api_captcha_v1_proto protoreflect.FileDescriptor
+var File_captcha_v1_proto protoreflect.FileDescriptor
 
-const file_api_captcha_v1_proto_rawDesc = "" +
+const file_captcha_v1_proto_rawDesc = "" +
 	"\n" +
-	"\x14api/captcha_v1.proto\x12\n" +
+	"\x10captcha_v1.proto\x12\n" +
 	"captcha_v1\"\x1d\n" +
 	"\aService\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\"1\n" +
@@ -132,23 +132,23 @@ const file_api_captcha_v1_proto_rawDesc = "" +
 	"\x06Create\x12\x13.captcha_v1.Service\x1a\x13.captcha_v1.DetailsB\"Z pkg/go/gen/captcha_v1;captcha_v1b\x06proto3"
 
 var (
-	file_api_captcha_v1_proto_rawDescOnce sync.Once
-	file_api_captcha_v1_proto_rawDescData []byte
+	file_captcha_v1_proto_rawDescOnce sync.Once
+	file_captcha_v1_proto_rawDescData []byte
 )
 
-func file_api_captcha_v1_proto_rawDescGZIP() []byte {
-	file_api_captcha_v1_proto_rawDescOnce.Do(func() {
-		file_api_captcha_v1_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_api_captcha_v1_proto_rawDesc), len(file_api_captcha_v1_proto_rawDesc)))
+func file_captcha_v1_proto_rawDescGZIP() []byte {
+	file_captcha_v1_proto_rawDescOnce.Do(func() {
+		file_captcha_v1_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_captcha_v1_proto_rawDesc), len(file_captcha_v1_proto_rawDesc)))
 	})
-	return file_api_captcha_v1_proto_rawDescData
+	return file_captcha_v1_proto_rawDescData
 }
 
-var file_api_captcha_v1_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
-var file_api_captcha_v1_proto_goTypes = []any{
+var file_captcha_v1_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_captcha_v1_proto_goTypes = []any{
 	(*Service)(nil), // 0: captcha_v1.Service
 	(*Details)(nil), // 1: captcha_v1.Details
 }
-var file_api_captcha_v1_proto_depIdxs = []int32{
+var file_captcha_v1_proto_depIdxs = []int32{
 	0, // 0: captcha_v1.Captcha.Create:input_type -> captcha_v1.Service
 	1, // 1: captcha_v1.Captcha.Create:output_type -> captcha_v1.Details
 	1, // [1:2] is the sub-list for method output_type
@@ -158,26 +158,26 @@ var file_api_captcha_v1_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_api_captcha_v1_proto_init() }
-func file_api_captcha_v1_proto_init() {
-	if File_api_captcha_v1_proto != nil {
+func init() { file_captcha_v1_proto_init() }
+func file_captcha_v1_proto_init() {
+	if File_captcha_v1_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_api_captcha_v1_proto_rawDesc), len(file_api_captcha_v1_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_captcha_v1_proto_rawDesc), len(file_captcha_v1_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_api_captcha_v1_proto_goTypes,
-		DependencyIndexes: file_api_captcha_v1_proto_depIdxs,
-		MessageInfos:      file_api_captcha_v1_proto_msgTypes,
+		GoTypes:           file_captcha_v1_proto_goTypes,
+		DependencyIndexes: file_captcha_v1_proto_depIdxs,
+		MessageInfos:      file_captcha_v1_proto_msgTypes,
 	}.Build()
-	File_api_captcha_v1_proto = out.File
-	file_api_captcha_v1_proto_goTypes = nil
-	file_api_captcha_v1_proto_depIdxs = nil
+	File_captcha_v1_proto = out.File
+	file_captcha_v1_proto_goTypes = nil
+	file_captcha_v1_proto_depIdxs = nil
 }
