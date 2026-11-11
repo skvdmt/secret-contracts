@@ -1,0 +1,12 @@
+syntax = "proto3";
+package auth_success_v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "pkg/go/gen/auth_success_v1;auth_success_v1";
+
+message Event {
+  string id = 1;
+  string username = 2;
+  google.protobuf.Timestamp created_at = 3;
+}
