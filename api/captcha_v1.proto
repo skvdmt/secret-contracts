@@ -4,14 +4,14 @@ package captcha_v1;
 option go_package = "pkg/go/gen/captcha_v1;captcha_v1";
 
 service Captcha {
-  rpc Create(Service) returns(Details);
+  rpc CaptchaInfo(Service) returns(Info);
 }
 
 message Service {
   string name = 1;
 }
 
-message Details {
+message Info {
   string id = 1;
-  string result = 2;
+  string value = 2;
 }

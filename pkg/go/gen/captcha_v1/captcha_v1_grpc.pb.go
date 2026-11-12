@@ -19,14 +19,14 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Captcha_Create_FullMethodName = "/captcha_v1.Captcha/Create"
+	Captcha_CaptchaInfo_FullMethodName = "/captcha_v1.Captcha/CaptchaInfo"
 )
 
 // CaptchaClient is the client API for Captcha service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CaptchaClient interface {
-	Create(ctx context.Context, in *Service, opts ...grpc.CallOption) (*Details, error)
+	CaptchaInfo(ctx context.Context, in *Service, opts ...grpc.CallOption) (*Info, error)
 }
 
 type captchaClient struct {
@@ -37,10 +37,10 @@ func NewCaptchaClient(cc grpc.ClientConnInterface) CaptchaClient {
 	return &captchaClient{cc}
 }
 
-func (c *captchaClient) Create(ctx context.Context, in *Service, opts ...grpc.CallOption) (*Details, error) {
+func (c *captchaClient) CaptchaInfo(ctx context.Context, in *Service, opts ...grpc.CallOption) (*Info, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(Details)
-	err := c.cc.Invoke(ctx, Captcha_Create_FullMethodName, in, out, cOpts...)
+	out := new(Info)
+	err := c.cc.Invoke(ctx, Captcha_CaptchaInfo_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -51,7 +51,7 @@ func (c *captchaClient) Create(ctx context.Context, in *Service, opts ...grpc.Ca
 // All implementations should embed UnimplementedCaptchaServer
 // for forward compatibility.
 type CaptchaServer interface {
-	Create(context.Context, *Service) (*Details, error)
+	CaptchaInfo(context.Context, *Service) (*Info, error)
 }
 
 // UnimplementedCaptchaServer should be embedded to have
@@ -61,8 +61,8 @@ type CaptchaServer interface {
 // pointer dereference when methods are called.
 type UnimplementedCaptchaServer struct{}
 
-func (UnimplementedCaptchaServer) Create(context.Context, *Service) (*Details, error) {
-	return nil, status.Error(codes.Unimplemented, "method Create not implemented")
+func (UnimplementedCaptchaServer) CaptchaInfo(context.Context, *Service) (*Info, error) {
+	return nil, status.Error(codes.Unimplemented, "method CaptchaInfo not implemented")
 }
 func (UnimplementedCaptchaServer) testEmbeddedByValue() {}
 
@@ -84,20 +84,20 @@ func RegisterCaptchaServer(s grpc.ServiceRegistrar, srv CaptchaServer) {
 	s.RegisterService(&Captcha_ServiceDesc, srv)
 }
 
-func _Captcha_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Captcha_CaptchaInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Service)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CaptchaServer).Create(ctx, in)
+		return srv.(CaptchaServer).CaptchaInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Captcha_Create_FullMethodName,
+		FullMethod: Captcha_CaptchaInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CaptchaServer).Create(ctx, req.(*Service))
+		return srv.(CaptchaServer).CaptchaInfo(ctx, req.(*Service))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -110,8 +110,8 @@ var Captcha_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*CaptchaServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Create",
-			Handler:    _Captcha_Create_Handler,
+			MethodName: "CaptchaInfo",
+			Handler:    _Captcha_CaptchaInfo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
